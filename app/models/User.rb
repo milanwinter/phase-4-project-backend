@@ -1,5 +1,3 @@
-class User << ApplicationRecord
-    def initialize
-        "adding some code here"
-    end
+class User < ApplicationRecord
+    has_secure_password
 end
