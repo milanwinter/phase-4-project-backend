@@ -5,17 +5,17 @@ class VideosController < ApplicationController
     end
 
     def show
-        video = video.find_by(id: params["id"])
+        video = Video.find_by(id: params["id"])
         render json: video
     end
 
     def create
-        video = video.create(name: params[:name], playlist_id: params[:playlist_id])
+        video = Video.create(videoId: params[:videoId], playlist_id: params[:playlist_id])
         render json: video
     end
 
     def destroy
-        video = video.find_by(id: params["id"])
+        video = Video.find_by(id: params["id"])
         video.destroy()
         render json: video
     end

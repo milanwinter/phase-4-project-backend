@@ -1,4 +1,6 @@
 class PlaylistsController < ApplicationController
+    #skip_before_action :authorized
+
     def index
         playlists = Playlist.all
         render json: playlists
@@ -10,7 +12,8 @@ class PlaylistsController < ApplicationController
     end
 
     def create
-        playlist = Playlist.create(name: params[:name], user_id: params[:user_id])
+        
+        playlist = Playlist.create(title: params[:name], user_id: params[:user_id])
         render json: playlist
     end
 
