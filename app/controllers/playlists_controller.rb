@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-    #skip_before_action :authorized
+    skip_before_action :authorized
 
     def index
         playlists = Playlist.all
