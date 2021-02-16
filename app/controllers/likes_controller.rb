@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
-    before_action :find_playlist
+
+    before_action :find_playlist, only: [:create]
 
     before_action :find_like, only: [:destroy]
 
@@ -10,12 +11,12 @@ class LikesController < ApplicationController
     if already_liked?
         flash[:notice] = "You can't like more than once"
     else
-        @post.likes.create(user_id: current_user.id)
+        @playlist.likes.create(user_id: current_user.id)
     end
    end
 
    def index
-       likes = Likes.all
+       likes = Like.all
        render json: likes
    end
 
@@ -35,7 +36,7 @@ class LikesController < ApplicationController
     @like = @playlist.likes.find(params[:id])
    end
 
-   def find_post
+   def find_playlist
      @playlist = Playlist.find(params[:playlist_id])
    end
 
