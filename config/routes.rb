@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :playlists
+  resources :playlists do
+    resources :likes
+  end
   resources :videos
   namespace :api do
     namespace :v1 do
