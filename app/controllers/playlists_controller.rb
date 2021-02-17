@@ -8,6 +8,7 @@ class PlaylistsController < ApplicationController
 
     def show
         playlist = Playlist.find_by(id: params["id"])
+        total_likes = playlist.likes.count
         render json: playlist
     end
 
