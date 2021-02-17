@@ -8,11 +8,14 @@ class LikesController < ApplicationController
 
 
    def create
+    response = ""
     if already_liked?
-        flash[:notice] = "You can't like more than once"
+        response = "You can't like more than once"
     else
-        @playlist.likes.create(user_id: current_user.id)
+       @playlist.likes.create(user_id: current_user.id)
+       response = "Item was successfully created"
     end
+        render json: {message: response}
    end
 
    def index
