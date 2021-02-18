@@ -2,7 +2,11 @@ class Api::V1::UsersController < ApplicationController
     skip_before_action :authorized, only: [:create]
   
     def profile
-      render json: { user: UserSerializer.new(current_user) }, status: :accepted
+      user = current_user
+      liked_playlist = user.liked_playlist
+      playlist_and_likes = liked_playlist.map{|playlist| {playlist:  playlist, likes: playlist.likes}}
+      render json: { user: UserSerializer.new(current_user), liked_playlists: playlist_and_likes}, status: :accepted
+      
     end
   
     def create
@@ -14,6 +18,8 @@ class Api::V1::UsersController < ApplicationController
         render json: { error: 'failed to create user' }, status: :not_acceptable
       end
     end
+    
+
   
     private
   

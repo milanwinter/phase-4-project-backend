@@ -30,10 +30,10 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  user: Bowers
+  # user: Bowers
 
   # The password associated with the postgres role (username).
-  password: Delthorn37!
+  # password: Delthorn37!
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -56,12 +56,12 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: project_backend_test
-  user: Bowers
-  password: Delthorn37!
-  host: localhost
+# test:
+#   <<: *default
+#   database: project_backend_test
+#   user: Bowers
+#   password: Delthorn37!
+#   host: localhost
   
 
 # As with config/credentials.yml, you never want to store sensitive information,
