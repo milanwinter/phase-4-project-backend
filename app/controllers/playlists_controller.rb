@@ -13,7 +13,6 @@ class PlaylistsController < ApplicationController
     end
 
     def create
-        
         playlist = Playlist.create(title: params[:name], user_id: params[:user_id])
         render json: playlist
     end
