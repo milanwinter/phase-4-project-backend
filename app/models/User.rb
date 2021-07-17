@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
 
     def liked_playlist
-        
         playlists = self.likes.map{|like| like.playlist}
         playlists
     end

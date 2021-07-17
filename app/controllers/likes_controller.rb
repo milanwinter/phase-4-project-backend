@@ -13,7 +13,7 @@ class LikesController < ApplicationController
         response = "You can't like more than once"
     else
        @playlist.likes.create(user_id: current_user.id)
-       response = "Item was successfully created"
+       response = "You have liked the playlist"
     end
         render json: {message: response}
    end
